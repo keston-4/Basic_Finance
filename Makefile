@@ -1,8 +1,3 @@
-# COSC326
-# Etude 1: Ants on a Plane
-# Shaun Kerr and Kurt Weston
-# ===
-# Makefile
 
 CC = g++
 FILES = finance.cpp
