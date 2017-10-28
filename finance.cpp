@@ -2,7 +2,7 @@
 using namespace std;
 #include <cmath>
 #include <cassert>
-
+#include <string.h>
 //#include <tgmath>
 //#include <math>
 /*
@@ -115,11 +115,14 @@ float calcGPerpRROR(float pv, float c, float g){
    return (c/pv)+g;
 }
 
+/** Runs tests for the calculator
+ *
+ * @return 0 if failed, 1 if successful
+ */
+int test(){
 
-int main(int argc, char** argv){
-   //floating point comparison is a bad idea,
-   // so just use definite values with no epsilon
-   // until I find a better way
+   try {
+
    cout << "Testing FV Calculator" << endl;
    assert(calcFV(1000.0f, 0.1f, 0) == 1000.0f);
    assert(calcFV(1000.0f, 0.1f, 1) == 1100.0f);
@@ -134,15 +137,38 @@ int main(int argc, char** argv){
 
    cout << "Testing interest rate calculator" << endl;
    assert(calcRate(1000.0f, 1000.0f, 1) == 0.0f);
-   cout << calcRate(4000.0f, 1000.0f, 2) << endl;
-   cout << (std::pow(4, (1/2)))-1 << endl;
-   assert(((int)calcRate(4000.0f, 1000.0f, 2)) == 1);
-
+   assert(((int) calcRate(4000.0f, 1000.0f, 2)) == 1);
+   //should be equivalent to 20.11%
+   assert(((int)(calcRate(2500.0f, 1000.0f, 5) * 10000)) == 2011);  
    cout << "Done!" << endl;
 
 
+   cout << "Tests completed successfully!" << endl;
+   
+   return 1;
 
+   } catch(...){
+      return 0;
+   }
 }
+
+int main(int argc, char** argv){
+   
+   //if we have arguments
+   if(argc > 1){
+      for(int i=1;i<argc;i++){
+         if(strcmp(argv[i],"-t") == 0){
+            return test();
+         }
+      }
+   }
+   
+   cout << "Starting GUI..." << endl;
+   
+}
+
+
+
 
 
 
