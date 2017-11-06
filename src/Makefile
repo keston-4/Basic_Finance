@@ -1,6 +1,6 @@
 
 CC = g++
-FILES = finance.cpp
+FILES = ../finance.cpp
 BIN = main
 FLAGS = -pedantic -Wall -std=c++11
 
