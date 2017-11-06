@@ -9,8 +9,7 @@ install:
 
 script:
   - cd tests
-  - mkdir build
-  - cd build
+  - ls
   - cmake ..
   - make
   - ./text_executable
