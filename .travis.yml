@@ -9,7 +9,7 @@ install:
 
 script:
   - cd tests
-  - ls
-  - cmake ..
+  - g++ -Igtest-1.7.0/include -Igtest-1.7.0 -c gtest-1.7.0/src/gtest-all.cc
+  - ar -rv libgtest.a gtest-all.o
   - make
   - ./text_executable
