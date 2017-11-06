@@ -12,4 +12,5 @@ script:
   - g++ -Igtest-1.7.0/include -Igtest-1.7.0 -c gtest-1.7.0/src/gtest-all.cc
   - ar -rv libgtest.a gtest-all.o
   - make
+  - ls
   - ./text_executable
