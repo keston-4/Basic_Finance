@@ -3,8 +3,14 @@ language: cpp
 compiler:
   - g++
 
+install:
+   - sudo apt-get install libgtest-dev
+
+
 script:
-  - ls
-  - cd tests 
+  - cd tests
+  - mkdir build
+  - cd build
+  - cmake ..
   - make
   - ./text_executable
