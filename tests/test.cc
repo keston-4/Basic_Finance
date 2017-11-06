@@ -4,7 +4,7 @@
 TEST(FVCalculator, Normal) {
     EXPECT_EQ(calcSimpleFV(1000.0f, 0.1f, 0), 1000.0f);
     EXPECT_EQ(calcSimpleFV(1000.0f, 0.1f, 1), 1100.0f);
-    EXPECT_EQ((int) calcSimpleFV(1000.0f, 0.2f, 5), 2488);
+    EXPECT_EQ(calcSimpleFV(1000.0f, 0.2f, 5), 2488);
 }
 
 TEST(PVCalculator, Normal) {
