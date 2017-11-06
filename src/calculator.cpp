@@ -20,20 +20,20 @@ using namespace std;
 //CHECK:
 // cpp maths, floating point and exponents
 
-float calcFV(float pv, float r, int t){
+float calcSimpleFV(float pv, float r, int t){
    return (pv * std::pow((1+r), t));
 }
 
-float calcPV(float fv, float r, int t){
+float calcSimplePV(float fv, float r, int t){
    return (fv / std::pow(1+r,t));
 }
 
-float calcRate(float fv, float pv, int t){
+float calcSimpleRate(float fv, float pv, int t){
    return (std::pow((fv / pv), (1.0f/t)) - 1);
 }
 
 //float because we could either round up or down (context dependent)
-float calcPeriod(float fv, float pv, float r){
+float calcSimplePeriod(float fv, float pv, float r){
    return log(fv/pv) / log(1+r);
 }
 
@@ -41,20 +41,20 @@ float calcPeriod(float fv, float pv, float r){
 /*
  * A N N U I T I E S
  */
-float calcPVA(float c, float r, int t){
+float calcAnnuityPV(float c, float r, int t){
    return (c / r) * (1-(1/std::pow((1+r),t)));
 }
 
 //CA = Coupon payment of an Annuity
-float calcCouponPVA(float pva, float r, int t){
+float calcAnnuityCouponPV(float pva, float r, int t){
    return (pva * r) / (1-(1/std::pow((1+r),t)));
 }
 
-float calcFVA(float c, float r, int t){
+float calcAnnuityFVA(float c, float r, int t){
    return c * (std::pow((1+r),t)/r);
 }
 
-float calcCouponFVA(float fva, float r, int t){
+float calcAnnuityCouponFV(float fva, float r, int t){
    return (fva * r) / (std::pow((1+r),t) - 1);
 }
 
@@ -90,10 +90,6 @@ float calcTADuePVA(float pva, float c, float r){
 float calcTADueFVA(float fva, float c, float r){
    return log(1+((r*fva)/((1+r)*c)))/log(1+r);
 }
-
-
-
-
 
 //perpetuity
 
