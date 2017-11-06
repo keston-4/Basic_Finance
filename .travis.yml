@@ -13,4 +13,4 @@ script:
   - ar -rv libgtest.a gtest-all.o
   - make
   - ls
-  - test_executable
+  - ./test_executable
